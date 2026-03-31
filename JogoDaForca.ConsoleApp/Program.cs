@@ -9,13 +9,47 @@
 */
 
 // 1. Ao iniciar o jogo, deve ser selecionada uma palavra aleatória à partir de uma lista.
-string palavraSecreta = "ABACATE";
+using System.Security.Cryptography;
 
-// 2. O jogador poderá chutar a palavra secreta letra por letra, cada letra certa
-// deverá ser apresentada.
-char[] letrasCorretas = new char[7];
+string[] palavras = [
+    "ABACATE",
+    "ABACAXI",
+    "ACEROLA",
+    "ACAI",
+    "ARACA",
+    "BACABA",
+    "BACURI",
+    "BANANA",
+    "CAJA",
+    "CAJU",
+    "CARAMBOLA",
+    "CUPUACU",
+    "GRAVIOLA",
+    "GOIABA",
+    "JABUTICABA",
+    "JENIPAPO",
+    "MACA",
+    "MANGABA",
+    "MANGA",
+    "MARACUJA",
+    "MURICI",
+    "PEQUI",
+    "PITANGA",
+    "PITAYA",
+    "SAPOTI",
+    "TANGERINA",
+    "UMBU",
+    "UVA",
+    "UVAIA"
+];
 
-for (int contadorLetras = 0; contadorLetras < 7; contadorLetras++)
+int indiceAleatorio = RandomNumberGenerator.GetInt32(palavras.Length + 1);
+
+string palavraSecreta = palavras[indiceAleatorio];
+
+char[] letrasCorretas = new char[palavraSecreta.Length];
+
+for (int contadorLetras = 0; contadorLetras < palavraSecreta.Length; contadorLetras++)
 {
     letrasCorretas[contadorLetras] = '_';
 }
@@ -34,7 +68,7 @@ while (true)
     Console.WriteLine("Erros cometidos: " + contadorErros + " erros");
     Console.Write("Chutes: ");
 
-    for (int contadorLetras = 0; contadorLetras < 7; contadorLetras++)
+    for (int contadorLetras = 0; contadorLetras < palavraSecreta.Length; contadorLetras++)
     {
         Console.Write(letrasCorretas[contadorLetras]);
     }
