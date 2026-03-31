@@ -25,9 +25,9 @@ int contadorErros = 0;
 bool jogadorAcertou = false;
 bool jogadorPerdeu = false;
 
-while (!jogadorAcertou && !jogadorPerdeu)
+while (true)
 {
-    // Console.Clear();
+    Console.Clear();
     Console.WriteLine("--------------------------------------------");
     Console.WriteLine("Jogo da Forca");
     Console.WriteLine("--------------------------------------------");
@@ -40,6 +40,106 @@ while (!jogadorAcertou && !jogadorPerdeu)
     }
 
     Console.WriteLine("\n--------------------------------------------");
+
+    if (contadorErros == 0)
+    {
+        Console.WriteLine(@" ___________        ");
+        Console.WriteLine(@" |/        |        ");
+        Console.WriteLine(@" |                  ");
+        Console.WriteLine(@" |                  ");
+        Console.WriteLine(@" |                  ");
+        Console.WriteLine(@" |                  ");
+        Console.WriteLine(@" |                  ");
+        Console.WriteLine(@"_|____              ");
+    }
+    else if (contadorErros == 1)
+    {
+        Console.WriteLine(@" ___________        ");
+        Console.WriteLine(@" |/        |        ");
+        Console.WriteLine(@" |         o        ");
+        Console.WriteLine(@" |                  ");
+        Console.WriteLine(@" |                  ");
+        Console.WriteLine(@" |                  ");
+        Console.WriteLine(@" |                  ");
+        Console.WriteLine(@"_|____              ");
+
+    }
+    else if (contadorErros == 2)
+    {
+        Console.WriteLine(@" ___________        ");
+        Console.WriteLine(@" |/        |        ");
+        Console.WriteLine(@" |         o        ");
+        Console.WriteLine(@" |         |        ");
+        Console.WriteLine(@" |                  ");
+        Console.WriteLine(@" |                  ");
+        Console.WriteLine(@" |                  ");
+        Console.WriteLine(@"_|____              ");
+
+    }
+    else if (contadorErros == 3)
+    {
+        Console.WriteLine(@" ___________        ");
+        Console.WriteLine(@" |/        |        ");
+        Console.WriteLine(@" |         o        ");
+        Console.WriteLine(@" |        /|        ");
+        Console.WriteLine(@" |                  ");
+        Console.WriteLine(@" |                  ");
+        Console.WriteLine(@" |                  ");
+        Console.WriteLine(@"_|____              ");
+
+    }
+
+    else if (contadorErros == 4)
+    {
+        Console.WriteLine(@" ___________        ");
+        Console.WriteLine(@" |/        |        ");
+        Console.WriteLine(@" |         o        ");
+        Console.WriteLine(@" |        /|\        ");
+        Console.WriteLine(@" |                  ");
+        Console.WriteLine(@" |                  ");
+        Console.WriteLine(@" |                  ");
+        Console.WriteLine(@"_|____              ");
+
+    }
+
+    else if (contadorErros == 5)
+    {
+        Console.WriteLine(@" ___________        ");
+        Console.WriteLine(@" |/        |        ");
+        Console.WriteLine(@" |         o        ");
+        Console.WriteLine(@" |        /|\       ");
+        Console.WriteLine(@" |        / \       ");
+        Console.WriteLine(@" |                  ");
+        Console.WriteLine(@" |                  ");
+        Console.WriteLine(@"_|____              ");
+    }
+
+    else if (contadorErros == 6)
+    {
+        Console.WriteLine(@" ___________        ");
+        Console.WriteLine(@" |/        |        ");
+        Console.WriteLine(@" |         |        ");
+        Console.WriteLine(@" |         o        ");
+        Console.WriteLine(@" |        /|\       ");
+        Console.WriteLine(@" |        / \       ");
+        Console.WriteLine(@" |                  ");
+        Console.WriteLine(@" |                  ");
+        Console.WriteLine(@"_|____              ");
+    }
+
+    Console.WriteLine("\n--------------------------------------------");
+
+    if (jogadorAcertou)
+    {
+        Console.WriteLine($"Parabéns, você acertou! A palavra era: {palavraSecreta}");
+        break;
+    }
+    else if (jogadorPerdeu)
+    {
+        Console.WriteLine($"Que pena, você errou! A palavra era: {palavraSecreta}");
+        break;
+    }
+
     Console.Write("Digite uma letra: ");
     char chute = Convert.ToChar(Console.ReadLine());
 
@@ -62,17 +162,12 @@ while (!jogadorAcertou && !jogadorPerdeu)
     string letrasCorretasCompleta = string.Join("", letrasCorretas);
 
     if (palavraSecreta == letrasCorretasCompleta)
-    {
-        Console.WriteLine($"Parabéns, você acertou! A palavra era: {palavraSecreta}");
         jogadorAcertou = true;
-    }
 
     if (contadorErros > 5)
-    {
-        Console.WriteLine($"Que pena, você errou! A palavra era: {palavraSecreta}");
         jogadorPerdeu = true;
-    }
 }
 
+Console.WriteLine("--------------------------------------------");
 Console.Write("Digite ENTER para sair...");
 Console.ReadLine();
