@@ -24,7 +24,7 @@ bool jogadorAcertou = false;
 
 while (!jogadorAcertou)
 {
-    Console.Clear();
+    // Console.Clear();
 
     for (int contadorLetras = 0; contadorLetras < 7; contadorLetras++)
     {
@@ -44,5 +44,14 @@ while (!jogadorAcertou)
         }
     }
 
-    Console.ReadLine();
+    string letrasCorretasCompleta = string.Join("", letrasCorretas);
+
+    if (palavraSecreta == letrasCorretasCompleta)
+    {
+        Console.WriteLine($"Parabéns, você acertou! A palavra era: {palavraSecreta}");
+        jogadorAcertou = true;
+    }
 }
+
+Console.Write("Digite ENTER para sair...");
+Console.ReadLine();
